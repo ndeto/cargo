@@ -18,7 +18,7 @@ class SpacesController < ApplicationController
     @space = Space.new(space_params)
 
     if @space.save
-      render json: @space, status: :created, location: @space
+      render json: @space, status: :created
     else
       render json: @space.errors, status: :unprocessable_entity
     end
@@ -27,7 +27,7 @@ class SpacesController < ApplicationController
   # PATCH/PUT /spaces/1
   def update
     if @space.update(space_params)
-      render json: @space
+      render json: @space, status: :no_content
     else
       render json: @space.errors, status: :unprocessable_entity
     end
@@ -46,6 +46,6 @@ class SpacesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def space_params
-      params.fetch(:space, {})
+      params.permit(:departure, :destination, :departure_time, :arrival_time, :airline_id)
     end
 end

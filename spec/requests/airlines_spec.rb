@@ -78,8 +78,7 @@ RSpec.describe "Airlines", type: :request do
       end
 
       it 'returns a validation failure message' do
-        expect(response.body)
-            .to match(/can't be blank/)
+        expect(response.body).to match(/can't be blank/)
       end
 
     end

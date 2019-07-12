@@ -4,6 +4,5 @@ FactoryBot.define do
     destination { Faker::Address.city }
     departure_time { "2019-07-09 13:52:19" }
     arrival_time { "2019-07-09 13:52:19" }
-    airline { nil }
   end
 end
